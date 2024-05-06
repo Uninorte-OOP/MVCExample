@@ -15,7 +15,7 @@ import core.models.storage.Storage;
  */
 public class PersonController {
     
-    public static Response addPerson(String id, String firstname, String lastname, String age, String gender) {
+    public static Response createPerson(String id, String firstname, String lastname, String age, String gender) {
         try {
             int idInt, ageInt;
             boolean genderB;
@@ -58,7 +58,7 @@ public class PersonController {
         }
     }
     
-    public static Response getPerson(String id) {
+    public static Response readPerson(String id) {
         try {
             int idInt;
             
@@ -78,6 +78,14 @@ public class PersonController {
         } catch (Exception ex) {
             return new Response("Unexpected error", Status.INTERNAL_SERVER_ERROR);
         }
+    }
+    
+    public static Response updatePerson() {
+        return new Response("", Status.NOT_IMPLEMENTED);
+    }
+    
+    public static Response deletePerson() {
+        return new Response("", Status.NOT_IMPLEMENTED);
     }
     
 }

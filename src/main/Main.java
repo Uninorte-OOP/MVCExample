@@ -15,19 +15,19 @@ import core.models.Person;
 public class Main {
     
     public static void main(String[] args) {
-        Response response1 = PersonController.addPerson("100546", "Eduardo", "Angulo", "26", "M");
+        Response response1 = PersonController.createPerson("100546", "Eduardo", "Angulo", "26", "M");
         System.out.println("Message: " + response1.getMessage());
         System.out.println("Status: " + response1.getStatus() + "\n");
         
-        Response response2 = PersonController.addPerson("100547", "Juan", "Perez", "23", "M");
+        Response response2 = PersonController.createPerson("100547", "Juan", "Perez", "23", "M");
         System.out.println("Message: " + response2.getMessage());
         System.out.println("Status: " + response2.getStatus() + "\n");
         
-        Response response3 = PersonController.getPerson("100545");
+        Response response3 = PersonController.readPerson("100545");
         System.out.println("Message: " + response3.getMessage());
         System.out.println("Status: " + response3.getStatus() + "\n");
         
-        Response response4 = PersonController.getPerson("100546");
+        Response response4 = PersonController.readPerson("100546");
         System.out.println("Message: " + response4.getMessage());
         System.out.println("Status: " + response4.getStatus());
         System.out.println("Person: " + response4.getObject() + "\n");
