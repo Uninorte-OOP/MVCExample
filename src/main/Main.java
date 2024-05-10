@@ -4,9 +4,7 @@
  */
 package main;
 
-import core.controllers.PersonController;
-import core.controllers.utils.Response;
-import core.models.Person;
+import core.views.PersonView;
 
 /**
  *
@@ -14,23 +12,39 @@ import core.models.Person;
  */
 public class Main {
     
-    public static void main(String[] args) {
-        Response response1 = PersonController.createPerson("100546", "Eduardo", "Angulo", "26", "M");
-        System.out.println("Message: " + response1.getMessage());
-        System.out.println("Status: " + response1.getStatus() + "\n");
-        
-        Response response2 = PersonController.createPerson("100547", "Juan", "Perez", "23", "M");
-        System.out.println("Message: " + response2.getMessage());
-        System.out.println("Status: " + response2.getStatus() + "\n");
-        
-        Response response3 = PersonController.readPerson("100545");
-        System.out.println("Message: " + response3.getMessage());
-        System.out.println("Status: " + response3.getStatus() + "\n");
-        
-        Response response4 = PersonController.readPerson("100546");
-        System.out.println("Message: " + response4.getMessage());
-        System.out.println("Status: " + response4.getStatus());
-        System.out.println("Person: " + response4.getObject() + "\n");
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(PersonView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(PersonView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(PersonView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(PersonView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new PersonView().setVisible(true);
+            }
+        });
     }
     
 }

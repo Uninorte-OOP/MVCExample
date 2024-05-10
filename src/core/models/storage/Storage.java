@@ -49,4 +49,14 @@ public class Storage {
         return null;
     }
     
+    public boolean delPerson(int id) {
+        for (Person person : this.persons) {
+            if (person.getId() == id) {
+                this.persons.remove(person);
+                return true;
+            }
+        }
+        return false;
+    }
+    
 }

@@ -48,5 +48,21 @@ public class Person {
     public boolean isGender() {
         return gender;
     }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setGender(boolean gender) {
+        this.gender = gender;
+    }
     
 }
