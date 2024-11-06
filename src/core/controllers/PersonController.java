@@ -22,6 +22,9 @@ public class PersonController {
             
             try {
                 idInt = Integer.parseInt(id);
+                if (idInt < 0) {
+                    return new Response("Id must be positive", Status.BAD_REQUEST);
+                }
             } catch (NumberFormatException ex) {
                 return new Response("Id must be numeric", Status.BAD_REQUEST);
             }
@@ -36,6 +39,9 @@ public class PersonController {
             
             try {
                 ageInt = Integer.parseInt(age);
+                if (ageInt < 0) {
+                    return new Response("Age must be positive", Status.BAD_REQUEST);
+                }
             } catch (NumberFormatException ex) {
                 return new Response("Age must be numeric", Status.BAD_REQUEST);
             }
@@ -64,6 +70,9 @@ public class PersonController {
             
             try {
                 idInt = Integer.parseInt(id);
+                if (idInt < 0) {
+                    return new Response("Id must be positive", Status.BAD_REQUEST);
+                }
             } catch (NumberFormatException ex) {
                 return new Response("Id must be numeric", Status.BAD_REQUEST);
             }
@@ -87,6 +96,9 @@ public class PersonController {
             
             try {
                 idInt = Integer.parseInt(id);
+                if (idInt < 0) {
+                    return new Response("Id must be positive", Status.BAD_REQUEST);
+                }
             } catch (NumberFormatException ex) {
                 return new Response("Id must be numeric", Status.BAD_REQUEST);
             }
@@ -108,6 +120,9 @@ public class PersonController {
             
             try {
                 ageInt = Integer.parseInt(age);
+                if (ageInt < 0) {
+                    return new Response("Age must be positive", Status.BAD_REQUEST);
+                }
             } catch (NumberFormatException ex) {
                 return new Response("Age must be numeric", Status.BAD_REQUEST);
             }
@@ -137,12 +152,14 @@ public class PersonController {
             
             try {
                 idInt = Integer.parseInt(id);
+                if (idInt < 0) {
+                    return new Response("Id must be positive", Status.BAD_REQUEST);
+                }
             } catch (NumberFormatException ex) {
                 return new Response("Id must be numeric", Status.BAD_REQUEST);
             }
             
             Storage storage = Storage.getInstance();
-            
             if (!storage.delPerson(idInt)) {
                 return new Response("Person not found", Status.NOT_FOUND);
             }
