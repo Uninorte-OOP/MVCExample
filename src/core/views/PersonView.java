@@ -6,6 +6,7 @@ package core.views;
 
 import core.controllers.PersonController;
 import core.controllers.utils.Response;
+import core.models.Person;
 import javax.swing.JOptionPane;
 
 /**
@@ -113,14 +114,6 @@ public class PersonView extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(firstnameTextField))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(58, 58, 58)
-                                .addComponent(IDTextField))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,7 +127,15 @@ public class PersonView extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                                 .addComponent(updateButton)
                                 .addGap(42, 42, 42)
-                                .addComponent(deleteButton)))))
+                                .addComponent(deleteButton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(IDTextField)
+                                    .addComponent(firstnameTextField))))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -209,12 +210,20 @@ public class PersonView extends javax.swing.JFrame {
         } else if (response.getStatus() >= 400) {
             JOptionPane.showMessageDialog(null, response.getMessage(), "Error " + response.getStatus(), JOptionPane.WARNING_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, response.getMessage() + "\nPerson fullname: " + response.getObject(), "Response Message", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, response.getMessage(), "Response Message", JOptionPane.INFORMATION_MESSAGE);
             
-            IDTextField.setText("");
-            firstnameTextField.setText("");
-            lastnameTextField.setText("");
-            ageTextField.setText("");
+            Person person = (Person) response.getObject();
+            
+            IDTextField.setText("" + person.getId());
+            firstnameTextField.setText(person.getFirstname());
+            lastnameTextField.setText(person.getLastname());
+            ageTextField.setText("" + person.getAge());
+            
+            if (person.isGender()) {
+                genderComboBox.setSelectedItem("F");
+            } else {
+                genderComboBox.setSelectedItem("M");
+            }
         }
     }//GEN-LAST:event_readButtonActionPerformed
 

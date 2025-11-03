@@ -10,7 +10,7 @@ package core.models;
  */
 public class Person {
     
-    private int id;
+    private final int id;
     private String firstname;
     private String lastname;
     private int age;
@@ -63,6 +63,11 @@ public class Person {
 
     public void setGender(boolean gender) {
         this.gender = gender;
+    }
+    
+    @Override
+    public Person clone() throws CloneNotSupportedException {
+        return new Person(this.id, this.firstname, this.lastname, this.age, this.gender);
     }
     
 }

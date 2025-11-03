@@ -54,7 +54,7 @@ public class PersonController {
                 return new Response("Gender error", Status.BAD_REQUEST);
             }
             
-            Storage storage = Storage.getInstance();            
+            Storage storage = Storage.getInstance();
             if (!storage.addPerson(new Person(idInt, firstname, lastname, ageInt, genderB))) {
                 return new Response("A person with that id already exists", Status.BAD_REQUEST);
             }
@@ -83,7 +83,7 @@ public class PersonController {
             if (person == null) {
                 return new Response("Person not found", Status.NOT_FOUND);
             }
-            return new Response("Person found", Status.OK, person);
+            return new Response("Person found", Status.OK, person.clone());
         } catch (Exception ex) {
             return new Response("Unexpected error", Status.INTERNAL_SERVER_ERROR);
         }

@@ -18,14 +18,14 @@ public class PersonControllerTest {
     @Test
     public void testCreatePerson() throws Throwable {
         // Given
-        String idPerson1 = "100546"; 
-        String firstnamePerson1 = "Eduardo"; 
+        String idPerson1 = "100546";
+        String firstnamePerson1 = "Eduardo";
         String lastnamePerson1 = "Angulo";
-        String agePerson1 = "26";
+        String agePerson1 = "27";
         String genderPerson1 = "M";
         
-        String idPerson2 = "100547"; 
-        String firstnamePerson2 = "Juan"; 
+        String idPerson2 = "100547";
+        String firstnamePerson2 = "Juan";
         String lastnamePerson2 = "Perez";
         String agePerson2 = "23";
         String genderPerson2 = "M";
