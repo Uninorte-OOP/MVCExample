@@ -4,6 +4,8 @@
  */
 package core.controllers.utils;
 
+import java.util.HashMap;
+
 /**
  *
  * @author edangulo
@@ -12,17 +14,17 @@ public class Response {
     
     private String message;
     private int status;
-    private Object object;
+    private HashMap<String, Object> data;
 
     public Response(String message, int status) {
         this.message = message;
         this.status = status;
     }
     
-    public Response(String message, int status, Object object) {
+    public Response(String message, int status, HashMap<String, Object> data) {
         this.message = message;
         this.status = status;
-        this.object = object;
+        this.data = data;
     }
 
     public String getMessage() {
@@ -33,8 +35,8 @@ public class Response {
         return status;
     }
 
-    public Object getObject() {
-        return object;
+    public HashMap<String, Object> getData() {
+        return data;
     }
     
 }
