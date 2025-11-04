@@ -21,7 +21,7 @@ public class PersonController {
             boolean genderB;
             
             try {
-                idInt = Integer.parseInt(id);
+                idInt = Integer.parseInt(id.trim());
                 if (idInt < 0) {
                     return new Response("Id must be positive", Status.BAD_REQUEST);
                 }
@@ -29,16 +29,16 @@ public class PersonController {
                 return new Response("Id must be numeric", Status.BAD_REQUEST);
             }
             
-            if (firstname.equals("")) {
+            if (firstname.trim().equals("")) {
                 return new Response("Firstname must be not empty", Status.BAD_REQUEST);
             }
             
-            if (lastname.equals("")) {
+            if (lastname.trim().equals("")) {
                 return new Response("Lastname must be not empty", Status.BAD_REQUEST);
             }
             
             try {
-                ageInt = Integer.parseInt(age);
+                ageInt = Integer.parseInt(age.trim());
                 if (ageInt < 0) {
                     return new Response("Age must be positive", Status.BAD_REQUEST);
                 }
@@ -46,9 +46,9 @@ public class PersonController {
                 return new Response("Age must be numeric", Status.BAD_REQUEST);
             }
             
-            if (gender.equals("M")) {
+            if (gender.trim().equals("M")) {
                 genderB = false;
-            } else if (gender.equals("F")) {
+            } else if (gender.trim().equals("F")) {
                 genderB = true;
             } else {
                 return new Response("Gender error", Status.BAD_REQUEST);
@@ -69,7 +69,7 @@ public class PersonController {
             int idInt;
             
             try {
-                idInt = Integer.parseInt(id);
+                idInt = Integer.parseInt(id.trim());
                 if (idInt < 0) {
                     return new Response("Id must be positive", Status.BAD_REQUEST);
                 }
@@ -95,7 +95,7 @@ public class PersonController {
             boolean genderB;
             
             try {
-                idInt = Integer.parseInt(id);
+                idInt = Integer.parseInt(id.trim());
                 if (idInt < 0) {
                     return new Response("Id must be positive", Status.BAD_REQUEST);
                 }
@@ -110,16 +110,16 @@ public class PersonController {
                 return new Response("Person not found", Status.NOT_FOUND);
             }
             
-            if (firstname.equals("")) {
+            if (firstname.trim().equals("")) {
                 return new Response("Firstname must be not empty", Status.BAD_REQUEST);
             }
             
-            if (lastname.equals("")) {
+            if (lastname.trim().equals("")) {
                 return new Response("Lastname must be not empty", Status.BAD_REQUEST);
             }
             
             try {
-                ageInt = Integer.parseInt(age);
+                ageInt = Integer.parseInt(age.trim());
                 if (ageInt < 0) {
                     return new Response("Age must be positive", Status.BAD_REQUEST);
                 }
@@ -127,9 +127,9 @@ public class PersonController {
                 return new Response("Age must be numeric", Status.BAD_REQUEST);
             }
             
-            if (gender.equals("M")) {
+            if (gender.trim().equals("M")) {
                 genderB = false;
-            } else if (gender.equals("F")) {
+            } else if (gender.trim().equals("F")) {
                 genderB = true;
             } else {
                 return new Response("Gender error", Status.BAD_REQUEST);
@@ -151,7 +151,7 @@ public class PersonController {
             int idInt;
             
             try {
-                idInt = Integer.parseInt(id);
+                idInt = Integer.parseInt(id.trim());
                 if (idInt < 0) {
                     return new Response("Id must be positive", Status.BAD_REQUEST);
                 }
