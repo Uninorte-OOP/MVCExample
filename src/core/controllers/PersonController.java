@@ -83,7 +83,7 @@ public class PersonController {
             if (person == null) {
                 return new Response("Person not found", Status.NOT_FOUND);
             }
-            return new Response("Person found", Status.OK, person.clone());
+            return new Response("Person found", Status.OK, person.serialize());
         } catch (Exception ex) {
             return new Response("Unexpected error", Status.INTERNAL_SERVER_ERROR);
         }

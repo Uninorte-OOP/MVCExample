@@ -4,11 +4,13 @@
  */
 package core.models;
 
+import java.util.HashMap;
+
 /**
  *
  * @author edangulo
  */
-public class Person {
+public class Person implements Serializable {
     
     private final int id;
     private String firstname;
@@ -64,10 +66,18 @@ public class Person {
     public void setGender(boolean gender) {
         this.gender = gender;
     }
-    
+
     @Override
-    public Person clone() throws CloneNotSupportedException {
-        return new Person(this.id, this.firstname, this.lastname, this.age, this.gender);
+    public HashMap<String, Object> serialize() {
+        HashMap<String, Object> serializedData = new HashMap<>();
+        
+        serializedData.put("id", this.id);
+        serializedData.put("firstname", this.firstname);
+        serializedData.put("lastname", this.lastname);
+        serializedData.put("age", this.age);
+        serializedData.put("gender", this.gender);
+        
+        return serializedData;
     }
     
 }

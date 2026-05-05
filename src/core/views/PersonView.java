@@ -7,6 +7,7 @@ package core.views;
 import core.controllers.PersonController;
 import core.controllers.utils.Response;
 import core.models.Person;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
 
 /**
@@ -212,14 +213,14 @@ public class PersonView extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, response.getMessage(), "Response Message", JOptionPane.INFORMATION_MESSAGE);
             
-            Person person = (Person) response.getObject();
+            HashMap<String, Object> data = response.getData();
             
-            IDTextField.setText("" + person.getId());
-            firstnameTextField.setText(person.getFirstname());
-            lastnameTextField.setText(person.getLastname());
-            ageTextField.setText("" + person.getAge());
+            IDTextField.setText("" + (int) data.get("id"));
+            firstnameTextField.setText((String) data.get("firstname"));
+            lastnameTextField.setText((String) data.get("lastname"));
+            ageTextField.setText("" + (int) data.get("age"));
             
-            if (person.isGender()) {
+            if ((boolean) data.get("gender")) {
                 genderComboBox.setSelectedItem("F");
             } else {
                 genderComboBox.setSelectedItem("M");
