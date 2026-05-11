@@ -6,7 +6,6 @@ package core.views;
 
 import core.controllers.PersonController;
 import core.controllers.utils.Response;
-import core.models.Person;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
 
